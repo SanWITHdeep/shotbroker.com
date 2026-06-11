@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shot Broker | Preethu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#0d0d0d;
+color:white;
+overflow-x:hidden;
+}
+
+body::before{
+content:'';
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 20%,rgba(255,119,0,.15),transparent 30%),
+radial-gradient(circle at 80% 70%,rgba(255,119,0,.15),transparent 30%);
+z-index:-1;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+position:sticky;
+top:0;
+backdrop-filter:blur(10px);
+background:rgba(0,0,0,.6);
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+color:#ff7a00;
+}
+
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+transition:.3s;
+}
+
+nav a:hover{
+color:#ff7a00;
+}
+
+.marquee{
+background:#ff7a00;
+color:black;
+padding:12px;
+font-weight:600;
+overflow:hidden;
+white-space:nowrap;
+}
+
+.marquee span{
+display:inline-block;
+padding-left:100%;
+animation:scroll 18s linear infinite;
+}
+
+@keyframes scroll{
+0%{transform:translateX(0);}
+100%{transform:translateX(-100%);}
+}
+
+.hero{
+min-height:90vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:50px 8%;
+gap:60px;
+flex-wrap:wrap;
+}
+
+.hero img{
+width:350px;
+height:350px;
+object-fit:cover;
+border-radius:30px;
+border:4px solid #ff7a00;
+box-shadow:0 0 30px rgba(255,122,0,.5);
+}
+
+.hero-text h1{
+font-size:60px;
+}
+
+.hero-text h1 span{
+color:#ff7a00;
+}
+
+.hero-text p{
+margin-top:15px;
+max-width:600px;
+line-height:1.8;
+opacity:.9;
+}
+
+.btns{
+margin-top:25px;
+display:flex;
+gap:15px;
+}
+
+.btn{
+padding:14px 28px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+font-weight:600;
+transition:.3s;
+text-decoration:none;
+}
+
+.primary{
+background:#ff7a00;
+color:black;
+}
+
+.secondary{
+border:2px solid #ff7a00;
+color:white;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+section{
+padding:80px 8%;
+}
+
+.title{
+font-size:40px;
+margin-bottom:40px;
+color:#ff7a00;
+}
+
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(10px);
+padding:25px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,.1);
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.stat{
+text-align:center;
+padding:35px;
+background:rgba(255,255,255,.05);
+border-radius:20px;
+}
+
+.stat h2{
+color:#ff7a00;
+font-size:40px;
+}
+
+.timeline{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.slot{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px;
+background:rgba(255,255,255,.05);
+border-radius:15px;
+}
+
+.booked{
+background:#ff3b30;
+padding:8px 15px;
+border-radius:30px;
+}
+
+.available{
+background:#00c853;
+padding:8px 15px;
+border-radius:30px;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.service{
+padding:30px;
+text-align:center;
+background:rgba(255,255,255,.05);
+border-radius:20px;
+transition:.3s;
+}
+
+.service:hover{
+transform:translateY(-8px);
+border:1px solid #ff7a00;
+}
+
+.service i{
+font-size:40px;
+color:#ff7a00;
+margin-bottom:15px;
+}
+
+.contact{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+
+.contact-card{
+padding:25px;
+background:rgba(255,255,255,.05);
+border-radius:20px;
+}
+
+.contact-card a{
+color:#ff7a00;
+text-decoration:none;
+}
+
+footer{
+padding:30px;
+text-align:center;
+background:#000;
+margin-top:50px;
+}
+
+@media(max-width:768px){
+
+.hero-text h1{
+font-size:42px;
+}
+
+.about{
+grid-template-columns:1fr;
+}
+
+.hero img{
+width:280px;
+height:280px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">SHOT BROKER</div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#schedule">Schedule</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<div class="marquee">
+<span>
+🔥 We currently have only one call boy on our roster — PREETHU • 🚀 Collaborations are open • 📢 We are expanding our network • Contact us to learn more.
+</span>
+</div>
+
+<section class="hero">
+
+<img src="preethu.jpeg" alt="Preethu">
+
+<div class="hero-text" data-aos="fade-left">
+
+<h1>Meet <span>Preethu</span></h1>
+
+<p>
+Your Perfect Call Boy, real personality and very enthusiast F*cks.
+Building engaging experiences and fantasies, collaborating with all type of people,
+and creating memorable shots and sounds for customers worldwide.
+</p>
+
+<div class="btns">
+<a href="#contact" class="btn primary">Contact Now</a>
+<a href="#schedule" class="btn secondary">View Schedule</a>
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="title">About</h2>
+
+<div class="about">
+
+<div class="card" data-aos="fade-up">
+<h3>Who is Preethu?</h3>
+<br>
+<p>
+Preethu is a passionate call boy(fu*ker) focused on pure fantasies,
+styles, cozy moments and physical engagement. Known for
+authentic foreplay and guaranteed pull out gamer.
+</p>
+</div>
+
+<div class="card" data-aos="fade-up">
+<h3>Skills & Expertise</h3>
+<br>
+<p>
+✔ Accepts all type of Collaborations<br>
+✔ Abiltity to work from anywhere<br>
+✔ Smooth enough<br>
+✔ Long lasting<br>
+✔ Moan Expert<br>
+✔ Creative angles
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">Statistics</h2>
+
+<div class="stats">
+
+<div class="stat">
+<h2>69K+</h2>
+<p>Followers</p>
+</div>
+
+<div class="stat">
+<h2>699+</h2>
+<p>Posts</p>
+</div>
+
+<div class="stat">
+<h2>67+</h2>
+<p>Collaborations</p>
+</div>
+
+<div class="stat">
+<h2>4+</h2>
+<p>Years Experience</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="schedule">
+
+<h2 class="title">Today's Availability</h2>
+
+<div class="timeline">
+
+<div class="slot">
+<span>09:00 AM - 11:00 AM</span>
+<span class="booked">Booked</span>
+</div>
+
+<div class="slot">
+<span>11:00 AM - 01:00 PM</span>
+<span class="available">Available</span>
+</div>
+
+<div class="slot">
+<span>01:00 PM - 03:00 PM</span>
+<span class="booked">Booked</span>
+</div>
+
+<div class="slot">
+<span>03:00 PM - 06:00 PM</span>
+<span class="available">Available</span>
+</div>
+
+<div class="slot">
+<span>06:00 PM - 08:00 PM</span>
+<span class="booked">Booked</span>
+</div>
+
+<div class="slot">
+<span>08:00 PM - 10:00 PM</span>
+<span class="available">Available</span>
+</div>
+
+</div>
+
+</section>
+
+<section id="services">
+
+<h2 class="title">Services</h2>
+
+<div class="services">
+
+<div class="service">
+<i class="fas fa-camera"></i>
+<h3>Oral</h3>
+</div>
+
+<div class="service">
+<i class="fas fa-bullhorn"></i>
+<h3>BJ</h3>
+</div>
+
+<div class="service">
+<i class="fas fa-users"></i>
+<h3>Collabs</h3>
+</div>
+
+<div class="service">
+<i class="fas fa-microphone"></i>
+<h3>Multiple-sums</h3>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="title">Contact</h2>
+
+<div class="contact">
+
+<div class="contact-card">
+<h3><i class="fas fa-phone"></i> Phone</h3>
+<br>
+<a href="tel:+919380480015">+91 9380X XXX15</a>
+</div>
+
+<div class="contact-card">
+<h3><i class="fab fa-instagram"></i> Instagram</h3>
+<br>
+<a href="https://instagram.com/_kush._.preetham_">
+@Preethu (_kush._.preetham_)
+</a>
+</div>
+
+<div class="contact-card">
+<h3><i class="fas fa-envelope"></i> Email</h3>
+<br>
+<a href="#">preethu@shotbroker.com</a>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+<h3>SHOT BROKER</h3>
+<p>Connecting sWorkers and opportunities.</p>
+<br>
+<p>© 2026 All Rights Reserved.</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({
+duration:1000,
+once:true
+});
+</script>
+
+</body>
+</html>
